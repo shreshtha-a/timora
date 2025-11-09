@@ -1,0 +1,86 @@
+{
+  "name": "RecurringTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Recurring task title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Task details"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "project",
+        "someday"
+      ],
+      "default": "daily"
+    },
+    "recurrence_type": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly",
+        "custom"
+      ],
+      "description": "Type of recurrence pattern"
+    },
+    "recurrence_interval": {
+      "type": "number",
+      "description": "Interval for recurrence (e.g., every 2 days)"
+    },
+    "recurrence_days": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Days of week for weekly recurrence (Mon, Tue, etc.)"
+    },
+    "recurrence_time": {
+      "type": "string",
+      "description": "Time of day for task creation (HH:MM)"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When recurrence starts"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When recurrence ends (optional)"
+    },
+    "last_generated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time a task was generated"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether recurrence is active"
+    },
+    "auto_reminder_minutes": {
+      "type": "number",
+      "description": "Minutes before task to send reminder"
+    }
+  },
+  "required": [
+    "title",
+    "recurrence_type"
+  ]
+}
