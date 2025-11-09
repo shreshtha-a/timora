@@ -1,0 +1,46 @@
+{
+  "name": "FocusSession",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "number",
+      "description": "Session duration in minutes"
+    },
+    "task_id": {
+      "type": "string",
+      "description": "Associated task ID"
+    },
+    "task_title": {
+      "type": "string",
+      "description": "Task title for quick reference"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether session was completed"
+    },
+    "session_type": {
+      "type": "string",
+      "enum": [
+        "pomodoro",
+        "deep_work",
+        "quick_task"
+      ],
+      "default": "pomodoro",
+      "description": "Type of focus session"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session start time"
+    },
+    "ended_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session end time"
+    }
+  },
+  "required": [
+    "duration"
+  ]
+}

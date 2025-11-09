@@ -1,0 +1,67 @@
+{
+  "name": "TaskAutomation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Automation rule name"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this automation does"
+    },
+    "trigger_type": {
+      "type": "string",
+      "enum": [
+        "task_completed",
+        "task_created",
+        "task_overdue",
+        "time_based",
+        "status_changed"
+      ],
+      "description": "What triggers this automation"
+    },
+    "trigger_task_id": {
+      "type": "string",
+      "description": "Specific task that triggers automation (if applicable)"
+    },
+    "trigger_conditions": {
+      "type": "object",
+      "description": "Additional conditions for trigger"
+    },
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "create_task",
+        "update_task",
+        "send_email",
+        "create_note"
+      ],
+      "description": "What action to perform"
+    },
+    "action_data": {
+      "type": "object",
+      "description": "Data for the action (e.g., new task details)"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether automation is active"
+    },
+    "last_triggered": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time automation ran"
+    },
+    "trigger_count": {
+      "type": "number",
+      "default": 0,
+      "description": "How many times automation has run"
+    }
+  },
+  "required": [
+    "name",
+    "trigger_type",
+    "action_type"
+  ]
+}
